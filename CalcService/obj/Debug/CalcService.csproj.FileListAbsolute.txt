@@ -1,0 +1,7 @@
+c:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\bin\Debug\CalcService.dll
+c:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\bin\Debug\CalcService.pdb
+c:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\obj\Debug\CalcService.csprojResolveAssemblyReference.cache
+c:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\obj\Debug\CalcService.dll
+c:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\obj\Debug\CalcService.pdb
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\bin\Debug\LogService.dll
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\CalcService\bin\Debug\LogService.pdb

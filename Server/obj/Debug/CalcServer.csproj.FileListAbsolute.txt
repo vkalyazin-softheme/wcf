@@ -1,0 +1,10 @@
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\Server.exe.config
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\Server.exe
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\Server.pdb
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\CalcService.dll
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\LogService.dll
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\CalcService.pdb
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\bin\Debug\LogService.pdb
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\obj\Debug\CalcServer.csprojResolveAssemblyReference.cache
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\obj\Debug\Server.exe
+C:\Users\1\documents\visual studio 2015\Projects\TestWcf\Server\obj\Debug\Server.pdb
