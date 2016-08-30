@@ -17,21 +17,21 @@ namespace CalcService
 
         public Calc()
         {
-            //var binding = new WebHttpBinding();
-            //var endpoint = new EndpointAddress("http://localhost/Logger.svc");
+            var binding = new WebHttpBinding();
+            var endpoint = new EndpointAddress("http://localhost/Logger");
 
-            //_loggerChannelFactory = new ChannelFactory<ILogger>(binding, endpoint);
-            //_loggerChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
+            _loggerChannelFactory = new ChannelFactory<ILogger>(binding, endpoint);
+            _loggerChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
         }
 
         public string Add(string a, string b)
         {
-            //var client = _loggerChannelFactory.CreateChannel();
-
-            //client.Log();
-
             try
             {
+                var client = _loggerChannelFactory.CreateChannel();
+
+                client.Log();
+
                 var intA = Convert.ToInt32(a);
                 var intB = Convert.ToInt32(b);
 
@@ -41,6 +41,7 @@ namespace CalcService
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return string.Format("Error: {0}", ex);
             }
         }

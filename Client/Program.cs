@@ -13,10 +13,7 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            var binding = new WebHttpBinding();
-            var endpoint = new EndpointAddress("http://localhost/Calc.svc");
-
-            var calcChannelFactory = new ChannelFactory<ICalc>(binding, endpoint);
+            var calcChannelFactory = new ChannelFactory<ICalc>(new WebHttpBinding(), "http://localhost/Calc");
             calcChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
 
             var client = calcChannelFactory.CreateChannel();
