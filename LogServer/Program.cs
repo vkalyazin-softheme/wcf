@@ -13,9 +13,9 @@ namespace LogServer
         static void Main(string[] args)
         {
             var serviceType = typeof(Logger);
-            var serviceUri = new Uri("http://localhost/Logger");
+            var serviceUri = new Uri("http://localhost/Logger.svc");
             var host = new ServiceHost(serviceType, serviceUri);
-            host.AddDefaultEndpoints();
+            host.AddServiceEndpoint(typeof(ILogger), new WebHttpBinding(), "");
             host.Open();
 
             Console.WriteLine("{0}: Host is open.", DateTime.Now);

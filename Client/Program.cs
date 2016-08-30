@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
+using System.ServiceModel.Description;
 using CalcService;
 
 namespace Client
@@ -12,10 +13,11 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            var binding = new BasicHttpBinding();
-            var endpoint = new EndpointAddress("http://localhost/Calc");
+            var binding = new WebHttpBinding();
+            var endpoint = new EndpointAddress("http://localhost/Calc.svc");
 
             var calcChannelFactory = new ChannelFactory<ICalc>(binding, endpoint);
+            calcChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
 
             var client = calcChannelFactory.CreateChannel();
 
@@ -23,10 +25,10 @@ namespace Client
             {
                 try
                 {
-                    var a = Convert.ToInt32(Console.ReadLine());
-                    var b = Convert.ToInt32(Console.ReadLine());
+                    var a = Console.ReadLine();
+                    var b = Console.ReadLine();
 
-                    var result = client.Add(a, b);
+                    var result = Convert.ToInt32(client.Add(a, b));
 
                     Console.WriteLine("Result: {0}.", result);
                     Console.WriteLine();
@@ -36,13 +38,9 @@ namespace Client
                         break;
                     }
                 }
-                catch (FormatException)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Input error.");
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Connection error.");
+                    Console.WriteLine(ex);
                 }
             }
 
