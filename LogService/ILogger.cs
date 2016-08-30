@@ -13,6 +13,6 @@ namespace LogService
     {
         [OperationContract]
         [WebGet]
-        void Log();
+        void Log(string message);
     }
 }

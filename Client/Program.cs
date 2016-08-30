@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using CalcService;
+using LogService;
 
 namespace Client
 {
@@ -13,10 +14,14 @@ namespace Client
     {
         static void Main(string[] args)
         {
+            var loggerChannelFactory = new ChannelFactory<ILogger>(new WebHttpBinding(), "http://localhost/Logger");
+            loggerChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
+
             var calcChannelFactory = new ChannelFactory<ICalc>(new WebHttpBinding(), "http://localhost/Calc");
             calcChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
 
-            var client = calcChannelFactory.CreateChannel();
+            var calcClient = calcChannelFactory.CreateChannel();
+            var logClient = loggerChannelFactory.CreateChannel();
 
             while (true)
             {
@@ -25,7 +30,9 @@ namespace Client
                     var a = Console.ReadLine();
                     var b = Console.ReadLine();
 
-                    var result = Convert.ToInt32(client.Add(a, b));
+                    logClient.Log("From client.");
+
+                    var result = Convert.ToInt32(calcClient.Add(a, b));
 
                     Console.WriteLine("Result: {0}.", result);
                     Console.WriteLine();

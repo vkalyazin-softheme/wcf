@@ -10,9 +10,11 @@ namespace LogService
 
     public class Logger : ILogger
     {
-        public void Log()
+        public void Log(string message)
         {
             Console.WriteLine("Service was called at {0}.", DateTime.Now);
+            Console.WriteLine(message);
+            Console.WriteLine();
         }
     }
 }

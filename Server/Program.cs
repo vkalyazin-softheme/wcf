@@ -14,9 +14,7 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            var serviceType = typeof(Calc);
-            var serviceUri = new Uri("http://localhost/Calc");
-            var host = new WebServiceHost(serviceType, serviceUri);
+            var host = new WebServiceHost(typeof(Calc), new Uri("http://localhost/Calc"));
             host.AddServiceEndpoint(typeof(ICalc), new WebHttpBinding(), "");
             host.Open();
 

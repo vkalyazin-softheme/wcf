@@ -13,9 +13,7 @@ namespace LogServer
     {
         static void Main(string[] args)
         {
-            var serviceType = typeof(Logger);
-            var serviceUri = new Uri("http://localhost/Logger");
-            var host = new WebServiceHost(serviceType, serviceUri);
+            var host = new WebServiceHost(typeof(Logger), new Uri("http://localhost/Logger"));
             host.AddServiceEndpoint(typeof(ILogger), new WebHttpBinding(), "");
             host.Open();
 

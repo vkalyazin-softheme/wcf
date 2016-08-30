@@ -57,6 +57,10 @@
       <Project>{ab302a3e-d22f-432f-a5ef-96d84e4ee35c}</Project>
       <Name>CalcService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LogService\LogService.csproj">
+      <Project>{a0f01399-742e-4307-b7d9-910a06b55676}</Project>
+      <Name>LogService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

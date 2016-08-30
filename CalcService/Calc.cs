@@ -13,14 +13,9 @@ namespace CalcService
     {
         private readonly ChannelFactory<ILogger> _loggerChannelFactory;
 
-        private readonly ILogger _client;
-
         public Calc()
         {
-            var binding = new WebHttpBinding();
-            var endpoint = new EndpointAddress("http://localhost/Logger");
-
-            _loggerChannelFactory = new ChannelFactory<ILogger>(binding, endpoint);
+            _loggerChannelFactory = new ChannelFactory<ILogger>(new WebHttpBinding(), "http://localhost/Logger");
             _loggerChannelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
         }
 
@@ -30,12 +25,12 @@ namespace CalcService
             {
                 var client = _loggerChannelFactory.CreateChannel();
 
-                client.Log();
+                client.Log("From other service.");
 
                 var intA = Convert.ToInt32(a);
                 var intB = Convert.ToInt32(b);
 
-                Console.WriteLine("Success.");
+                Console.WriteLine("Service was called at {0}.", DateTime.Now);
 
                 return (intA + intB).ToString();
             }
