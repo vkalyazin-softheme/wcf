@@ -10,14 +10,19 @@ namespace CalcService
 {
     public class Calc : ICalc
     {
-        public int Add(int a, int b)
+        private readonly ChannelFactory<ILogger> _loggerChannelFactory;
+
+        public Calc()
         {
             var binding = new BasicHttpBinding();
             var endpoint = new EndpointAddress("http://localhost/Logger");
 
-            var calcChannelFactory = new ChannelFactory<ILogger>(binding, endpoint);
+            _loggerChannelFactory = new ChannelFactory<ILogger>(binding, endpoint);
+        }
 
-            var client = calcChannelFactory.CreateChannel();
+        public int Add(int a, int b)
+        {
+            var client = _loggerChannelFactory.CreateChannel();
 
             client.Log();
 
